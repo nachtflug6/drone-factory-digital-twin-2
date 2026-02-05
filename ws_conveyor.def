@@ -1,0 +1,101 @@
+Bootstrap: docker
+From: python:3.11-slim
+
+%files
+    requirements.txt /app/requirements.txt
+    src /app/src
+    examples /app/examples
+    docs /app/docs
+    tests /app/tests
+    *.md /app/
+    .gitignore /app/.gitignore
+
+%post
+    # Update system
+    apt-get update
+    apt-get install -y \
+        build-essential \
+        git \
+        vim \
+        wget
+    
+    # Install Python packages
+    cd /app
+    pip install --no-cache-dir -r requirements.txt
+    
+    # Install additional analysis tools
+    pip install --no-cache-dir \
+        jupyter \
+        ipython \
+        seaborn \
+        scikit-learn
+    
+    # Create output directories
+    mkdir -p /app/data/logs
+    mkdir -p /app/data/embeddings
+    mkdir -p /app/analysis/notebooks
+    mkdir -p /app/analysis/scripts
+    
+    # Cleanup
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    
+    # Set permissions
+    chmod -R 755 /app
+
+%environment
+    export PYTHONPATH=/app:$PYTHONPATH
+    export LC_ALL=C
+
+%runscript
+    # Default: run example simulation
+    cd /app
+    exec python examples/ws_conveyor_simulation.py "$@"
+
+%apprun simulation
+    cd /app
+    exec python examples/ws_conveyor_simulation.py "$@"
+
+%apprun test
+    cd /app
+    exec python -m pytest tests/ "$@"
+
+%apprun jupyter
+    cd /app
+    exec jupyter notebook --ip=0.0.0.0 --no-browser "$@"
+
+%help
+    WS Conveyor Digital Twin Simulation Container
+    
+    Usage:
+        # Run default simulation
+        apptainer run ws_conveyor.sif
+        
+        # Run custom script
+        apptainer exec ws_conveyor.sif python my_script.py
+        
+        # Run tests
+        apptainer run --app test ws_conveyor.sif
+        
+        # Start Jupyter notebook
+        apptainer run --app jupyter ws_conveyor.sif
+        
+        # Interactive shell
+        apptainer shell ws_conveyor.sif
+    
+    For long-horizon simulations on HPC clusters, use SLURM batch scripts.
+    
+    Documentation: /app/README.md
+
+%labels
+    Author Students
+    Version 1.0
+    Description WS Conveyor Digital Twin for HPC cluster deployment
+    Documentation https://github.com/your-repo/ws-conveyor-twin
+
+%test
+    # Run tests to verify container
+    cd /app
+    python -c "from src.mock_up.config import config_normal_operation; print('✓ Config import OK')"
+    python -c "from src.mock_up.components import create_ws_conveyor_system; print('✓ Components import OK')"
+    echo "Container tests passed!"
