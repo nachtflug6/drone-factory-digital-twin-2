@@ -78,6 +78,15 @@ if motor.state == MotorState.IDLE and target_state == MotorState.RUNNING:
 - [ ] Timing is implemented correctly (delays, ramps, etc.)
 - [ ] Time calculations are accurate to documentation
 
+### RFID (nominal / timing-only model)
+
+The mock-up **does not** model real RFID physics (air interface, anti-collision, memory banks, RSSI, etc.). It only keeps:
+
+- A **nominal tag ID** (string) and a small state machine: `IDLE → DETECTING → IDENTIFIED` (plus `ERROR` if used).
+- A configurable **`rfid_detection_delay`** (default **0.5 s** per project docs) to represent “read cycle / gate time” for scheduling and interlocks.
+
+**For demos and verification:** keep the **full** documentation delay unless you are explicitly testing a different scenario; do not shrink `rfid_detection_delay` just to make scripts finish faster.
+
 **Example:**
 
 Documentation says:

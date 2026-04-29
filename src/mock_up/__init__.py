@@ -12,4 +12,5 @@ from .config import SimulationConfig
 __all__ = [
     'SystemState',
     'SimulationConfig',
+    'PalletAlignmentWindow',
 ]

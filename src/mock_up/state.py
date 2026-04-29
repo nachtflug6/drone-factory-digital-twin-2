@@ -63,9 +63,19 @@ class SystemState:
         Returns:
             List of matching components
         """
+        requested = component_type.lower().strip()
+        aliases = {
+            "motor": {"motor", "conveyormotor"},
+            "conveyor": {"conveyor", "conveyormotor"},
+            "rfid": {"rfid", "rfidreader"},
+            "station": {"station", "dockingstation"},
+        }
+        accepted_names = aliases.get(requested, {requested})
+
         return [
-            c for c in self.components.values()
-            if c.__class__.__name__.lower() == component_type.lower()
+            c
+            for c in self.components.values()
+            if c.__class__.__name__.lower() in accepted_names
         ]
     
     def register_component(self, component: Any) -> None:
@@ -133,16 +143,36 @@ class SystemState:
         Args:
             current_time: New current time
         """
+        delta_seconds = max((current_time - self.current_time).total_seconds(), 0.0)
         self.current_time = current_time
-        
-        # Update components that have time-dependent behavior
+
+        # Update components that have time-dependent behavior.
+        # Components in this project use elapsed seconds, but legacy callers
+        # may still pass absolute timestamps into SystemState.update.
         for component in self.components.values():
             if hasattr(component, 'update'):
-                component.update(current_time)
+                elapsed_seconds = self._get_component_elapsed_time(component, current_time, delta_seconds)
+                component.update(elapsed_seconds)
             
             # Check invariants (e.g., load limits)
             if hasattr(component, 'check_load'):
                 component.check_load()
+
+    def _get_component_elapsed_time(
+        self, component: Any, current_time: datetime, fallback_delta_seconds: float
+    ) -> float:
+        """Derive elapsed seconds expected by component.update()."""
+        for attr in ("transition_start_time", "detect_start_time", "transfer_start_time"):
+            started_at = getattr(component, attr, None)
+            if isinstance(started_at, datetime):
+                raw = (current_time - started_at).total_seconds()
+                # datetime.now() markers vs virtual current_time => negative raw. Snap marker to
+                # this frame so subsequent updates see cumulative (current_time - started_at).
+                if raw < 0:
+                    setattr(component, attr, current_time)
+                    return 0.0
+                return raw
+        return fallback_delta_seconds
     
     def log_state(self) -> Dict[str, Any]:
         """

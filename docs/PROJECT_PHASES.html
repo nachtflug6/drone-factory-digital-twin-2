@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Project Phases &amp; Timeline</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="project-phases--timeline">Project Phases &amp; Timeline</h1>
+<h2 id="overview">Overview</h2>
+<p>The project is broken into <strong>5 core phases</strong> plus an <strong>optional extension</strong>. Each phase has clear objectives, deliverables, and success criteria.</p>
+<hr>
+<h2 id="phase-1-analysis--documentation-review">Phase 1: Analysis &amp; Documentation Review</h2>
+<p><strong>Duration:</strong> 1-2 weeks<br>
+<strong>Objective:</strong> Understand the drone factory system deeply</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li>
+<p><strong>Read System Documentation</strong></p>
+<ul>
+<li>Review provided PLC documentation (Kod_WSConv_Sven2022.pdf)</li>
+<li>Identify key subsystems and components</li>
+<li>Map input/output signals</li>
+<li>Document state transitions and timing constraints</li>
+<li>Follow guide: <a href="PLC_DOCUMENTATION.html">docs/PLC_DOCUMENTATION.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Create System Analysis Document</strong></p>
+<ul>
+<li>List all components (conveyors, motors, sensors, actuators)</li>
+<li>Document their interactions</li>
+<li>Identify timing constraints and dependencies</li>
+<li>Map state machines for each subsystem</li>
+</ul>
+</li>
+<li>
+<p><strong>Design High-Level Architecture</strong></p>
+<ul>
+<li>Sketch component hierarchy</li>
+<li>Define state representations</li>
+<li>Plan simulation interfaces</li>
+<li>Refer to: <a href="ARCHITECTURE.html">docs/ARCHITECTURE.md</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="deliverables">Deliverables</h3>
+<ul>
+<li>✓ System analysis report (markdown or PDF)</li>
+<li>✓ Component inventory with specifications</li>
+<li>✓ State transition diagrams (for key subsystems)</li>
+<li>✓ Architecture design document (draft)</li>
+</ul>
+<h3 id="success-criteria">Success Criteria</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All major components identified</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All state transitions documented</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Timing constraints clearly specified</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Team agrees on architecture approach</li>
+</ul>
+<hr>
+<h2 id="phase-2-mock-up-implementation-python">Phase 2: Mock-up Implementation (Python)</h2>
+<p><strong>Duration:</strong> 2-3 weeks<br>
+<strong>Objective:</strong> Translate documentation into executable Python code</p>
+<h3 id="tasks-1">Tasks</h3>
+<ol>
+<li>
+<p><strong>Implement Core Components</strong></p>
+<ul>
+<li>Location: <code>src/mock_up/components.py</code></li>
+<li>Create classes for each major component</li>
+<li>Define states (enums)</li>
+<li>Implement transition logic</li>
+<li>Start with simplest components first (sensors)</li>
+</ul>
+</li>
+<li>
+<p><strong>Implement State Management</strong></p>
+<ul>
+<li>Location: <code>src/mock_up/state.py</code></li>
+<li>Create global system state container</li>
+<li>Track component states</li>
+<li>Handle state persistence</li>
+</ul>
+</li>
+<li>
+<p><strong>Translate PLC Logic</strong></p>
+<ul>
+<li>Location: <code>src/mock_up/logic.py</code></li>
+<li>Convert state diagrams to code</li>
+<li>Implement conditional logic</li>
+<li>Handle timing and delays</li>
+<li>Manage inter-component dependencies</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Configuration</strong></p>
+<ul>
+<li>Location: <code>src/mock_up/config.py</code></li>
+<li>Define all configurable parameters</li>
+<li>Timing constants</li>
+<li>Initial states</li>
+<li>System thresholds</li>
+</ul>
+</li>
+</ol>
+<h3 id="code-structure-example">Code Structure Example</h3>
+<pre><code class="language-python"><span class="hljs-comment"># src/mock_up/components.py</span>
+
+<span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum
+<span class="hljs-keyword">from</span> dataclasses <span class="hljs-keyword">import</span> dataclass
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ConveyorState</span>(<span class="hljs-title class_ inherited__">Enum</span>):
+    IDLE = <span class="hljs-string">&quot;idle&quot;</span>
+    RUNNING = <span class="hljs-string">&quot;running&quot;</span>
+    STOPPED = <span class="hljs-string">&quot;stopped&quot;</span>
+    ERROR = <span class="hljs-string">&quot;error&quot;</span>
+
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ConveyorMotor</span>:
+    <span class="hljs-built_in">id</span>: <span class="hljs-built_in">str</span>
+    state: ConveyorState = ConveyorState.IDLE
+    speed: <span class="hljs-built_in">float</span> = <span class="hljs-number">0.0</span>
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">start</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-string">&quot;&quot;&quot;Transition to RUNNING state&quot;&quot;&quot;</span>
+        self.state = ConveyorState.RUNNING
+        self.speed = <span class="hljs-number">100.0</span>  <span class="hljs-comment"># RPM</span>
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">stop</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-string">&quot;&quot;&quot;Transition to STOPPED state&quot;&quot;&quot;</span>
+        self.state = ConveyorState.STOPPED
+        self.speed = <span class="hljs-number">0.0</span>
+</code></pre>
+<h3 id="deliverables-1">Deliverables</h3>
+<ul>
+<li>✓ Functional Python mock-up of all components</li>
+<li>✓ State management system</li>
+<li>✓ Logic implementation matching documentation</li>
+<li>✓ Configuration file with all parameters</li>
+<li>✓ Code documentation (docstrings)</li>
+</ul>
+<h3 id="success-criteria-1">Success Criteria</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All components implement documented behavior</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> No syntax errors, passes basic imports</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> State transitions work correctly</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Configuration is externalized</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Code is readable and documented</li>
+</ul>
+<h3 id="guidance-translating-plc-documentation">Guidance: Translating PLC Documentation</h3>
+<p><strong>Step 1: Identify State Diagrams</strong></p>
+<ul>
+<li>Extract state transition tables from documentation</li>
+<li>Create visual maps (tools: <a href="http://draw.io">draw.io</a>, Lucidchart)</li>
+<li>Note transition conditions and timing</li>
+</ul>
+<p><strong>Step 2: Define Data Structures</strong></p>
+<pre><code class="language-python"><span class="hljs-comment"># Example: Motor with states</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MotorState</span>(<span class="hljs-title class_ inherited__">Enum</span>):
+    OFF = <span class="hljs-string">&quot;off&quot;</span>
+    STARTING = <span class="hljs-string">&quot;starting&quot;</span>
+    RUNNING = <span class="hljs-string">&quot;running&quot;</span>
+    STOPPING = <span class="hljs-string">&quot;stopping&quot;</span>
+
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Motor</span>:
+    state: MotorState
+    power: <span class="hljs-built_in">float</span>  <span class="hljs-comment"># watts</span>
+    rpm: <span class="hljs-built_in">float</span>
+    start_time: datetime
+</code></pre>
+<p><strong>Step 3: Implement Transition Logic</strong></p>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_start_signal</span>(<span class="hljs-params">motor: Motor, timestamp: datetime</span>):
+    <span class="hljs-string">&quot;&quot;&quot;Handle start signal - translate PLC logic&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> motor.state == MotorState.OFF:
+        motor.state = MotorState.STARTING
+        motor.start_time = timestamp
+        <span class="hljs-comment"># Set startup ramp</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-comment"># Invalid state transition - log error</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<p><strong>Step 4: Test Transitions</strong></p>
+<ul>
+<li>Create simple test cases for each transition</li>
+<li>Verify timing and conditions match documentation</li>
+</ul>
+<hr>
+<h2 id="phase-3-verification--testing">Phase 3: Verification &amp; Testing</h2>
+<p><strong>Duration:</strong> 1-2 weeks<br>
+<strong>Objective:</strong> Ensure implementation matches documentation</p>
+<h3 id="tasks-2">Tasks</h3>
+<ol>
+<li>
+<p><strong>Create Test Cases</strong></p>
+<ul>
+<li>Location: <code>tests/</code> folder</li>
+<li>Unit tests for each component</li>
+<li>Integration tests for subsystems</li>
+<li>Edge case and error scenarios</li>
+<li>Follow guide: <a href="VERIFICATION_CHECKLIST.html">docs/VERIFICATION_CHECKLIST.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Implement Validators</strong></p>
+<ul>
+<li>Location: <code>src/verification/validators.py</code></li>
+<li>Check invariants (e.g., motor can't be at 2 states simultaneously)</li>
+<li>Verify timing constraints</li>
+<li>Validate state transition rules</li>
+</ul>
+</li>
+<li>
+<p><strong>Run Conformance Tests</strong></p>
+<ul>
+<li>Compare mock-up behavior against documentation</li>
+<li>Document any discrepancies</li>
+<li>Create test scenarios that exercise all transitions</li>
+<li>Verify with real system data (if available)</li>
+</ul>
+</li>
+</ol>
+<h3 id="test-structure">Test Structure</h3>
+<pre><code class="language-python"><span class="hljs-comment"># tests/unit/test_motor.py</span>
+
+<span class="hljs-keyword">import</span> pytest
+<span class="hljs-keyword">from</span> mock_up.components <span class="hljs-keyword">import</span> Motor, MotorState
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">test_motor_start_transition</span>():
+    <span class="hljs-string">&quot;&quot;&quot;Verify motor transitions from OFF to RUNNING&quot;&quot;&quot;</span>
+    motor = Motor(state=MotorState.OFF)
+    motor.start()
+    <span class="hljs-keyword">assert</span> motor.state == MotorState.RUNNING
+    <span class="hljs-keyword">assert</span> motor.rpm &gt; <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">test_motor_invalid_transition</span>():
+    <span class="hljs-string">&quot;&quot;&quot;Verify invalid transitions are rejected&quot;&quot;&quot;</span>
+    motor = Motor(state=MotorState.STARTING)
+    <span class="hljs-comment"># Can&#x27;t transition from STARTING to OFF (invalid)</span>
+    <span class="hljs-keyword">with</span> pytest.raises(InvalidTransitionError):
+        motor.stop_immediately()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">test_motor_timing</span>():
+    <span class="hljs-string">&quot;&quot;&quot;Verify motor respects timing constraints&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># E.g., motor must take 2 seconds to reach full speed</span>
+    motor = Motor(state=MotorState.OFF)
+    motor.start()
+    <span class="hljs-keyword">assert</span> motor.rpm &lt; <span class="hljs-number">100</span>  <span class="hljs-comment"># Not at full speed immediately</span>
+    <span class="hljs-comment"># After 2 seconds (simulated time)</span>
+    simulate_time(<span class="hljs-number">2.0</span>)
+    <span class="hljs-keyword">assert</span> motor.rpm &gt;= <span class="hljs-number">100</span>  <span class="hljs-comment"># Now at full speed</span>
+</code></pre>
+<h3 id="deliverables-2">Deliverables</h3>
+<ul>
+<li>✓ Comprehensive test suite (unit + integration)</li>
+<li>✓ Verification report documenting conformance</li>
+<li>✓ Test coverage report (aim for &gt;80%)</li>
+<li>✓ Identified discrepancies and resolutions</li>
+</ul>
+<h3 id="success-criteria-2">Success Criteria</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All documented behaviors have test cases</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Test coverage ≥80%</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All tests pass</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Discrepancies with documentation resolved</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Verification artifacts saved for final report</li>
+</ul>
+<hr>
+<h2 id="phase-4-simulation--logging">Phase 4: Simulation &amp; Logging</h2>
+<p><strong>Duration:</strong> 1-2 weeks<br>
+<strong>Objective:</strong> Build simulation engine and data logging</p>
+<h3 id="tasks-3">Tasks</h3>
+<ol>
+<li>
+<p><strong>Develop Simulation Engine</strong></p>
+<ul>
+<li>Location: <code>src/simulation/simulator.py</code></li>
+<li>Manage virtual time</li>
+<li>Schedule and execute events</li>
+<li>Coordinate components</li>
+<li>Follow guide: <a href="SIMULATION_GUIDE.html">docs/SIMULATION_GUIDE.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Implement Time Management</strong></p>
+<ul>
+<li>Location: <code>src/simulation/time_manager.py</code></li>
+<li>Virtual clock (accelerated/real-time)</li>
+<li>Event scheduling and execution</li>
+<li>Deterministic behavior</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Logging Framework</strong></p>
+<ul>
+<li>Location: <code>src/logging/logger.py</code></li>
+<li>Capture state changes</li>
+<li>Record events and transitions</li>
+<li>Log performance metrics</li>
+<li>Follow guide: <a href="LOGGING_SPECIFICATION.html">docs/LOGGING_SPECIFICATION.md</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Design Log Format</strong></p>
+<ul>
+<li>JSON for structured queries</li>
+<li>CSV for analysis</li>
+<li>Binary (optional) for large datasets</li>
+<li>Example:<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2024-01-15T10:30:45.123Z&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;motor_1&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;event&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;state_change&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;old_state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OFF&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;new_state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;RUNNING&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;details&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;rpm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;power&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">500</span><span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Run Extended Simulations</strong></p>
+<ul>
+<li>Execute 24+ hour (virtual) simulations</li>
+<li>Save logs to <code>data/logs/</code></li>
+<li>Organize by date and scenario</li>
+<li>Monitor system stability</li>
+</ul>
+</li>
+</ol>
+<h3 id="simulation-code-example">Simulation Code Example</h3>
+<pre><code class="language-python"><span class="hljs-comment"># src/simulation/simulator.py</span>
+
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta
+<span class="hljs-keyword">from</span> mock_up.state <span class="hljs-keyword">import</span> SystemState
+<span class="hljs-keyword">from</span> logging.logger <span class="hljs-keyword">import</span> Logger
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Simulator</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config, duration_hours=<span class="hljs-number">24</span></span>):
+        self.config = config
+        self.system = SystemState()
+        self.logger = Logger(config.log_file)
+        self.duration = timedelta(hours=duration_hours)
+        self.current_time = datetime.now()
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-string">&quot;&quot;&quot;Run simulation for configured duration&quot;&quot;&quot;</span>
+        end_time = self.current_time + self.duration
+        
+        <span class="hljs-keyword">while</span> self.current_time &lt; end_time:
+            <span class="hljs-comment"># Check for triggered events</span>
+            events = self.system.get_pending_events(self.current_time)
+            <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> events:
+                event.execute()
+                self.logger.log_event(event, self.current_time)
+            
+            <span class="hljs-comment"># Advance time</span>
+            self.current_time += timedelta(seconds=<span class="hljs-number">1</span>)
+        
+        self.logger.finalize()
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Simulation complete. Logs saved to <span class="hljs-subst">{self.logger.path}</span>&quot;</span>)
+</code></pre>
+<h3 id="deliverables-3">Deliverables</h3>
+<ul>
+<li>✓ Working simulation engine</li>
+<li>✓ Deterministic virtual time system</li>
+<li>✓ Comprehensive logging framework</li>
+<li>✓ Multiple 24+ hour simulation runs</li>
+<li>✓ Log files in standardized format</li>
+<li>✓ Documentation of logging schema</li>
+</ul>
+<h3 id="success-criteria-3">Success Criteria</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Simulator runs without crashes</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Virtual time advances predictably</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All state changes are logged</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Logs are parseable and queryable</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Simulation completes 24+ hours without errors</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Performance is reasonable (simulation runs faster than real-time)</li>
+</ul>
+<hr>
+<h2 id="phase-5-analysis--system-dynamics">Phase 5: Analysis &amp; System Dynamics</h2>
+<p><strong>Duration:</strong> 2-3 weeks<br>
+<strong>Objective:</strong> Analyze simulation results and extract insights</p>
+<h3 id="tasks-4">Tasks</h3>
+<ol>
+<li>
+<p><strong>Parse and Load Logs</strong></p>
+<ul>
+<li>Location: <code>src/logging/parser.py</code></li>
+<li>Read log files efficiently</li>
+<li>Build DataFrames (pandas)</li>
+<li>Handle large datasets</li>
+</ul>
+</li>
+<li>
+<p><strong>Analyze System Behavior</strong></p>
+<ul>
+<li>Create Jupyter notebooks in <code>analysis/notebooks/</code></li>
+<li>Study state distribution</li>
+<li>Identify patterns and cycles</li>
+<li>Detect anomalies or deviations</li>
+<li>Measure performance metrics (throughput, cycle time)</li>
+</ul>
+</li>
+<li>
+<p><strong>Generate Visualizations</strong></p>
+<ul>
+<li>Timeline plots of component states</li>
+<li>Scatter plots of interactions</li>
+<li>Heatmaps of state transitions</li>
+<li>Performance metrics dashboards</li>
+</ul>
+</li>
+<li>
+<p><strong>Document Findings</strong></p>
+<ul>
+<li>System dynamics report</li>
+<li>Interaction patterns</li>
+<li>Performance characteristics</li>
+<li>Deviations from expected behavior</li>
+<li>Recommendations for improvement</li>
+</ul>
+</li>
+</ol>
+<h3 id="analysis-example">Analysis Example</h3>
+<pre><code class="language-python"><span class="hljs-comment"># analysis/notebooks/01_system_dynamics.ipynb</span>
+
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># Load logs</span>
+logs = pd.read_json(<span class="hljs-string">&#x27;data/logs/simulation_2024_01_15.jsonl&#x27;</span>, lines=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># Analyze state transitions</span>
+motor_logs = logs[logs[<span class="hljs-string">&#x27;component&#x27;</span>] == <span class="hljs-string">&#x27;motor_1&#x27;</span>]
+transitions = motor_logs.groupby([<span class="hljs-string">&#x27;old_state&#x27;</span>, <span class="hljs-string">&#x27;new_state&#x27;</span>]).size()
+
+<span class="hljs-comment"># Visualize</span>
+plt.figure(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))
+logs.groupby([<span class="hljs-string">&#x27;component&#x27;</span>, <span class="hljs-string">&#x27;event&#x27;</span>]).size().plot(kind=<span class="hljs-string">&#x27;bar&#x27;</span>)
+plt.title(<span class="hljs-string">&#x27;Event Distribution Across Components&#x27;</span>)
+plt.ylabel(<span class="hljs-string">&#x27;Count&#x27;</span>)
+plt.show()
+</code></pre>
+<h3 id="deliverables-4">Deliverables</h3>
+<ul>
+<li>✓ Analysis notebooks (Jupyter)</li>
+<li>✓ Parsed and cleaned datasets</li>
+<li>✓ System dynamics report</li>
+<li>✓ Visualizations and plots</li>
+<li>✓ Performance metrics summary</li>
+<li>✓ Anomaly/deviation analysis</li>
+</ul>
+<h3 id="success-criteria-4">Success Criteria</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> All simulation logs are analyzed</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Key findings are documented</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Visualizations support findings</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Recommendations are actionable</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Report is clear and well-organized</li>
+</ul>
+<hr>
+<h2 id="phase-6-optional-embeddings--anomaly-detection">Phase 6 (Optional): Embeddings &amp; Anomaly Detection</h2>
+<p><strong>Duration:</strong> 1-2 weeks (if time permits)<br>
+<strong>Objective:</strong> Apply ML-based techniques for pattern analysis</p>
+<h3 id="tasks-5">Tasks</h3>
+<ol>
+<li>
+<p><strong>Feature Engineering</strong></p>
+<ul>
+<li>Extract behavioral vectors from logs</li>
+<li>Examples: state duration, transition patterns, timing deviations</li>
+<li>Normalize features</li>
+</ul>
+</li>
+<li>
+<p><strong>Generate Embeddings</strong></p>
+<ul>
+<li>Use autoencoders or similar techniques</li>
+<li>Create vector representations of system behavior windows</li>
+<li>Store in <code>data/embeddings/</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Similarity &amp; Anomaly Detection</strong></p>
+<ul>
+<li>Implement similarity search</li>
+<li>Identify unusual behavior patterns</li>
+<li>Cluster similar operational modes</li>
+<li>Detect deviations early</li>
+</ul>
+</li>
+<li>
+<p><strong>Report Findings</strong></p>
+<ul>
+<li>Novel patterns discovered</li>
+<li>Anomalies detected in simulation</li>
+<li>Implications for system health</li>
+</ul>
+</li>
+</ol>
+<h3 id="deliverables-5">Deliverables</h3>
+<ul>
+<li>✓ Feature extraction pipeline</li>
+<li>✓ Embedding model (trained or pre-trained)</li>
+<li>✓ Similarity search implementation</li>
+<li>✓ Anomaly detection results</li>
+<li>✓ Analysis and insights report</li>
+</ul>
+<hr>
+<h2 id="timeline--milestones">Timeline &amp; Milestones</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Key Deliverable</th>
+<th>Checkpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Analysis</td>
+<td>1-2 weeks</td>
+<td>System documentation &amp; design</td>
+<td>Team agreement on architecture</td>
+</tr>
+<tr>
+<td>2. Mock-up</td>
+<td>2-3 weeks</td>
+<td>Working Python implementation</td>
+<td>All components functional</td>
+</tr>
+<tr>
+<td>3. Verification</td>
+<td>1-2 weeks</td>
+<td>Test suite + conformance report</td>
+<td>Test coverage ≥80%, all tests pass</td>
+</tr>
+<tr>
+<td>4. Simulation &amp; Logging</td>
+<td>1-2 weeks</td>
+<td>24+ hour simulation runs, logs</td>
+<td>Multiple clean simulation runs</td>
+</tr>
+<tr>
+<td>5. Analysis</td>
+<td>2-3 weeks</td>
+<td>Analysis report + visualizations</td>
+<td>Findings documented and validated</td>
+</tr>
+<tr>
+<td>6. Optional Extension</td>
+<td>1-2 weeks</td>
+<td>Embedding analysis report</td>
+<td>Novel insights from ML analysis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total Duration:</strong> 8-14 weeks (depending on team size and scope)</p>
+<hr>
+<h2 id="important-checkpoints">Important Checkpoints</h2>
+<p>After each phase, verify:</p>
+<p>✓ <strong>Code Quality</strong></p>
+<ul>
+<li>No syntax errors</li>
+<li>Consistent naming and style</li>
+<li>Comprehensive docstrings</li>
+<li>Tests passing</li>
+</ul>
+<p>✓ <strong>Documentation</strong></p>
+<ul>
+<li>Changes logged (git commits)</li>
+<li>Design decisions documented</li>
+<li>Discrepancies from original system noted</li>
+<li>Future improvements identified</li>
+</ul>
+<p>✓ <strong>Reproducibility</strong></p>
+<ul>
+<li>Simulations can be re-run with same results</li>
+<li>Logs are parseable and consistent</li>
+<li>Configuration is version-controlled</li>
+</ul>
+<hr>
+<h2 id="how-to-track-progress">How to Track Progress</h2>
+<ol>
+<li>
+<p><strong>Use Git for version control</strong></p>
+<pre><code class="language-bash">git add .
+git commit -m <span class="hljs-string">&quot;Phase X: Specific accomplishment&quot;</span>
+git push
+</code></pre>
+</li>
+<li>
+<p><strong>Maintain <a href="http://PROGRESS.html">PROGRESS.md</a> in repo</strong></p>
+<ul>
+<li>Track completed tasks</li>
+<li>Note blockers or decisions</li>
+<li>Update regularly</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Issues for blockers</strong></p>
+<ul>
+<li>Document problems found</li>
+<li>Assign to team members</li>
+<li>Discuss and resolve</li>
+</ul>
+</li>
+<li>
+<p><strong>Review code regularly</strong></p>
+<ul>
+<li>Weekly team code reviews</li>
+<li>Discuss design decisions</li>
+<li>Share learnings</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="getting-unstuck">Getting Unstuck</h2>
+<p>If you're blocked:</p>
+<ol>
+<li><strong>Check similar implementations</strong> — Review <code>src/</code> for working examples</li>
+<li><strong>Review tests</strong> — <code>tests/</code> shows expected behavior</li>
+<li><strong>Read documentation</strong> — Each module has detailed docs</li>
+<li><strong>Trace execution</strong> — Add print statements or use debugger</li>
+<li><strong>Consult team</strong> — Discuss with colleagues</li>
+</ol>
+<hr>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>✅ Understand project timeline → Ready for Phase 1</li>
+<li>📖 Read <a href="PLC_DOCUMENTATION.html">docs/PLC_DOCUMENTATION.md</a> → Start system analysis</li>
+<li>🔧 Read <a href="ARCHITECTURE.html">docs/ARCHITECTURE.md</a> → Design approach</li>
+<li>💻 Begin implementation → Follow Phase 2 guidance</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
